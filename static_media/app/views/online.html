@@ -1,0 +1,316 @@
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <![endif]-->
+
+
+      <style>
+          /*
+            Code snippet by maridlcrmn for Bootsnipp.com
+            Follow me on Twitter @maridlcrmn
+            */
+          body{
+            padding-top:0px !important;
+          }
+
+          .navbar-default {
+              background-color: #388E3C;
+              border-color: #388E3C;
+            }
+          .navbar-default .navbar-brand {
+              color: #fff;
+              font-size:30px;
+            }
+          .navbar-default .navbar-nav>li>a {
+              color: #fff;
+            }
+          .navbar {
+              position: relative;
+              min-height: 70px;
+              margin-bottom: 20px;
+              border-radius: 0px;
+              border: 1px solid transparent;
+            }
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
+
+.navbar .navbar-collapse { position: relative; overflow: hidden !important; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+    background-color: rgb(111, 84, 153);
+    border-color: rgb(111, 84, 153);
+    color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+    height: auto !important;
+    transition: transform 0.3s;
+    transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+    transform: translate(0px,0px);
+}
+
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; }
+
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px,0px);
+    }
+
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px,-100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px,0px);
+    }
+}
+
+          .form-group input[type="radio"] {
+                display: none;
+            }
+
+            .form-group input[type="radio"] + .btn-group > label span {
+                width: 20px;
+            }
+
+            .form-group input[type="radio"] + .btn-group > label span:first-child {
+                display: none;
+            }
+            .form-group input[type="radio"] + .btn-group > label span:last-child {
+                display: inline-block;
+            }
+
+            .form-group input[type="radio"]:checked + .btn-group > label span:first-child {
+                display: inline-block;
+            }
+            .form-group input[type="radio"]:checked + .btn-group > label span:last-child {
+                display: none;
+            }
+          .container>.navbar-header {
+              margin-right: 0px;
+              margin-left: 0px;
+            }
+      </style>
+
+
+
+<!-- Navbar
+    ================================================== -->
+    <!-- Second navbar for sign in -->
+    <nav class="navbar navbar-default">
+      <div class="container" style="padding-top: 8px;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" style="color:#fff">
+              Online Test
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>{{ awesome }}</a></li>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed"
+                 data-toggle="collapse" data-target="#nav-collapse2"
+                 aria-expanded="false" aria-controls="nav-collapse2">
+                  <strong>
+                      2Hours 20mins 30sec
+                  </strong>
+              </a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="container">
+        <div ng-click="clear_session()">clear session</div>
+        <div class="col-lg-8" ng-repeat="question in questions" ng-show="currentStep == $index">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>
+                        <strong>
+                            Q{{ currentStep +1 }}
+                        </strong>
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 style="line-height:1.5em;">
+                        {{ question.question }}
+                    </h4>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:30px;">
+                <div class="col-lg-12">
+                    <div class="[ form-group ]">
+                        <input type="radio" value="{{ question.a }}" ng-model="answer" 
+                        ng-checked="true" ng-if="question.answered == question.a"
+                               name="{{ question._id}}" id="{{ question._id}}_1" 
+                               ng-change="save_answer(question._id, question.a)"/>
+
+                        <input type="radio" value="{{ question.a }}" ng-model="answer" ng-checked="true"
+                        ng-change="save_answer(question._id, question.a)"
+                        ng-if="question.answered != question.a"
+                               name="{{ question._id}}" id="{{ question._id}}_1" />
+                        
+                        <div class="[ btn-group ]">
+                            <label for="{{ question._id}}_1" style="padding: 2px;border-top-right-radius:3px;border-bottom-right-radius:3px;"
+                                   class="[ btn btn-default ]">
+                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                <span> </span>
+                            </label>
+                            <label for="{{ question._id}}_1" style="margin-left: 15px;font-weight:100;">
+                                {{ question.a }}
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="[ form-group ]">
+
+                        <input type="radio" value="{{ question.b }}" ng-model="answer" 
+                         ng-change="save_answer(question._id, question.b)" 
+                        ng-if="question.answered == question.b" ng-checked="true"
+                               name="{{ question._id}}" id="{{ question._id}}_2" />
+
+                        <input type="radio" value="{{ question.b }}" ng-model="answer" 
+                         ng-change="save_answer(question._id, question.b)"
+                        ng-if="question.answered != question.b"
+                               name="{{ question._id}}" id="{{ question._id}}_2" />
+
+                        <div class="[ btn-group ]">
+                            <label for="{{ question._id}}_2" style="padding: 2px;border-top-right-radius:3px;border-bottom-right-radius:3px;"
+                                   class="[ btn btn-default ]">
+                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                <span> </span>
+                            </label>
+                            <label for="{{ question._id}}_2" style="margin-left: 15px;font-weight:100;">
+                                {{ question.b }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="[ form-group ]">
+                        <input type="radio" value="{{ question.c }}" ng-model="answer"  ng-change="save_answer(question._id, question.c)"
+                        ng-if="question.answered == question.c" ng-checked = "true"
+                               name="{{ question._id}}" id="{{ question._id}}_3" />
+
+                        <input type="radio" value="{{ question.c }}" ng-model="answer"  ng-change="save_answer(question._id, question.c)"
+                        ng-if="question.answered != question.c"
+                               name="{{ question._id}}" id="{{ question._id}}_3" />
+
+                        <div class="[ btn-group ]">
+                            <label for="{{ question._id}}_3" style="padding: 2px;border-top-right-radius:3px;border-bottom-right-radius:3px;"
+                                   class="[ btn btn-default ]">
+                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                <span> </span>
+                            </label>
+                            <label for="{{ question._id}}_3" style="margin-left: 15px;font-weight:100;">
+                                {{ question.c }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="[ form-group ]">
+                        <input type="radio" value="{{ question.d }}" ng-model="answer"  ng-change="save_answer(question._id, question.d)"
+                        ng-if="question.answered == question.d" ng-checked = "true" ng-change="save_answer(question._id, question.d)"
+                               name="{{ question._id}}" id="{{ question._id}}_4" />
+
+                        <input type="radio" value="{{ question.d }}" ng-model="answer"  
+                        ng-if="question.answered != question.d" 
+                               name="{{ question._id}}" id="{{ question._id}}_4" />
+                               
+
+                        <div class="[ btn-group ]">
+                            <label for="{{ question._id}}_4" style="padding: 2px;border-top-right-radius:3px;border-bottom-right-radius:3px;"
+                                   class="[ btn btn-default ]">
+                                <span class="[ glyphicon glyphicon-ok ]"></span>
+                                <span> </span>
+                            </label>
+                            <label for="{{ question._id}}_4" style="margin-left: 15px;font-weight:100;">
+                                {{ question.d }}
+                            </label>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <h5><strong>Selected Answer</strong>: {{ answer }}</h5>
+              </div>
+            </div>
+            <hr />
+            <div class="row" style="margin-top:50px;">
+                <div class="col-lg-4">
+                    <button class="btn btn-sm btn-primary" ng-click="prevQuestion('{{ question._id }}', answer)">
+                        Previous Question
+                    </button>
+                </div>
+                <div class="col-lg-4">
+                    <button class="btn btn-sm btn-success" ng-click="submit_exam()">
+                        Submit Exam Now
+                    </button>
+                </div>
+                <button ng-click="nextQuestion('{{ question._id }}', answer)" class="btn btn-sm btn-primary">
+                    Next Question
+                </button>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-12" style="background:#f5f5f5">
+                  {{ total_answers }}=+={{ correct_answers }}==+{{ wrong_answers }}
+                     <table>
+                        <tr>
+                          <th>Subject</th>
+                          <th>Grade</th>
+                        </tr>
+                        <tr ng-repeat="answer in answers">
+                          <td>{{answer.subcode}}</td>
+                          <td>{{answer.grade}}</td>
+                        </tr>
+                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

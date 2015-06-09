@@ -1,0 +1,96 @@
+<style>
+    .tut{
+        margin-bottom:30px;
+        margin-left:0px !important;
+        margin-right:2px;
+        cursor: pointer;
+    }
+</style>
+<div ng-include src="'static/app/views/navbar.html'"></div>
+<div class="container">
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li>
+              <a href="#/">
+                  <i class="icon-chevron-right"></i>
+                  Home
+              </a>
+          </li>
+          <li class="active">
+              <a href="#/courses">
+                  <i class="icon-chevron-right"></i>
+                  Courses
+              </a>
+          </li>
+          <li>
+              <a href="#/odl">
+                  <i class="icon-chevron-right"></i>
+                   Online Distance Learning
+              </a>
+          </li>
+
+            <li>
+              <a href="#/feedback">
+                  <i class="icon-chevron-right"></i>
+                  Feedback
+              </a>
+          </li>
+          <li>
+              <a href="#/contact">
+                  <i class="icon-chevron-right"></i>
+                  Contact
+              </a>
+          </li>
+          <li ng-if="currentUser.is_superuser">
+              <a href="#/courses/[[ cat ]]/assessments/create_assessment">
+                  <i class="icon-chevron-right"></i>
+                  create assessmet
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Global Bootstrap settings
+        ================================================== -->
+        <section id="installation" style="min-height:350px;">
+
+            <h1>Tutorials</h1>
+			</br>
+
+            <div class="span3 tut" ng-repeat="exam in exam_names">
+                <div class="" ng-if="check_exam.get(exam)">
+                    <a class="btn btn-sm btn-block btn-success" target="_blank" href="#/courses/wind-energy/assessments/[[ exam ]]"
+                       class="btn btn-small btn-success" style="padding:5px 10px;">
+                        [[ exam ]]
+                    </a>
+                </div>
+                <div class="span3 tut" ng-if="!(check_exam.get(exam))" >
+                    <a class="btn btn-sm btn-block btn-success" target="_blank" disabled href="#/courses/wind-energy/assessments/[[ exam ]]"
+                       class="btn btn-small btn-success" style="padding:5px 10px;">
+                        [[ exam ]]
+                    </a>
+                </div>
+
+            </div>
+
+            <hr />
+
+
+        </section>
+
+
+        <hr class="bs-docs-separator">
+
+
+      </div>
+    </div>
+
+
+
+</div>

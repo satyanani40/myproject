@@ -1,0 +1,79 @@
+<style>
+    .tut{
+        margin-bottom:30px;
+        margin-left:0px !important;
+        margin-right:2px;
+    }
+</style>
+<div ng-include src="'static/app/views/navbar.html'"></div>
+<div class="container">
+    <!-- Docs nav
+
+    ================================================== -->
+    <div class="row">
+
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li>
+              <a href="#/">
+                  <i class="icon-chevron-right"></i>
+                  Home
+              </a>
+          </li>
+          <li class="active">
+              <a href="#/courses">
+                  <i class="icon-chevron-right"></i>
+                  Courses
+              </a>
+          </li>
+          <li>
+              <a href="#/about">
+                  <i class="icon-chevron-right"></i>
+                  About us
+              </a>
+          </li>
+            <li>
+              <a href="#/feedback">
+                  <i class="icon-chevron-right"></i>
+                  Feedback
+              </a>
+          </li>
+          <li>
+              <a href="#/contact">
+                  <i class="icon-chevron-right"></i>
+                  Contact
+              </a>
+          </li>
+          <li ng-if="currentUser.is_superuser">
+              <a href="#/courses/wind-energy/tutorials/create-chapter">
+                  <i class="icon-chevron-right"></i>
+                  Create Chapter
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div class="span8">
+        <!-- Global Bootstrap settings
+        ================================================== -->
+        <section id="installation" style="min-height:350px;">
+
+            <h1>Tutorials</h1>
+			</br>
+            <div class="row-fluid">
+                <div class="span3 tut" ng-repeat="chapterArray in chapterArray">
+                    <a class="btn btn-sm btn-block btn-success" target="_blank" href="static/[[ chapterArray.chapter_path ]]"
+                       style="padding:5px 10px; ">
+                        [[ chapterArray.chapter_name ]]
+                    </a>
+                </div>
+            </div>
+
+
+        </section>
+
+
+      </div>
+    </div>
+
+
+</div>

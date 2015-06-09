@@ -1,0 +1,57 @@
+
+
+<!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background:green">
+          <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#/" style="color:#fff;">DLPSTAFFS</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated != true">
+
+                        <li class="dropdown active"><a href="#/login">Login</a></li>
+                        <li class="dropdown active"><a href="#/admin">Admin Login</a></li>
+                        <li class="dropdown active"><a href="#/register">Create User</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated == true">
+
+                        <li class="dropdown active"><a href="#/logout">Logout</a></li>
+                        <li class="dropdown active" ng-if="currentUser.is_superuser"><a href="#/register">Create User</a></li>
+                    </ul>
+                </div>
+
+            </div>
+          </div>
+        </div>
+<div class="container" style="padding-top:50px;">
+    <div class="row">
+        <div class="col-lg-offset-2 col-lg-6">
+            <h1>
+                After submission
+            </h1>
+            <h4>
+                Total Questions:&nbsp;&nbsp;[[ total_answers ]]
+            </h4>
+            <h4>
+                Correct Answers:&nbsp;&nbsp;[[ correct_answers ]]
+            </h4>
+
+            <h4>
+                Pass Mark :&nbsp;&nbsp;[[ pass_mark ]]
+            </h4>
+             <h4 ng-if="pass">
+                Congrats you passed exam
+            </h4>
+            <h4 ng-if="!(pass)">
+                Sorry  you failed exam
+            </h4>
+            <b> this page redirected with in 7 seconds........</b>
+        </div>
+    </div>
+</div>

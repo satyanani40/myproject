@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<style>
+    .form-control{
+        height:35px !important;
+    }
+    .colpadding{
+        padding-left:5px;
+        padding-right:5px;
+    }
+</style>
+<!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background:green">
+          <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#/" style="color:#fff;">DLPSTAFFS</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated != true">
+
+                        <li class="dropdown active"><a href="#/login">Login</a></li>
+                        <li class="dropdown active"><a href="#/admin">Admin Login</a></li>
+                        <li class="dropdown active"><a href="#/register">Create User</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated == true">
+
+                        <li class="dropdown active"><a href="#/logout">Logout</a></li>
+                        <li class="dropdown active" ng-if="currentUser.is_superuser"><a href="#/register">Create User</a></li>
+                    </ul>
+                </div>
+
+            </div>
+          </div>
+        </div>
+<div class="container" style="padding-top:80px;">
+    <div class="row" style="">
+        <div class="col-lg-offset-3 col-lg-6 col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock" style="opacity:0.70"></span>
+                    <strong>DLPSTAFFS</strong>
+                    &nbsp;Admin Credentials</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" name="myForm">
+                        <div class="form-group">
+                            <label  class="col-sm-2 colpadding control-label">
+                                Email
+                            </label>
+                            <div class="col-sm-8 colpadding">
+                                <input type="email"
+                                       class="form-control input-lg" id="email"
+                                       name="email" ng-model="formData.email" placeholder="Enter Email" required/>
+                                <span ng-show="myForm.email.$error.required && myForm.email.$dirty" style="color:red">
+                                    Email is required
+                                </span>
+                                <span ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty"
+                                        style="color:red">
+                                    You entered an invalid email
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 colpadding control-label">
+                                Password
+                            </label>
+                            <div class="col-sm-8 colpadding">
+                                <input type="password" class="form-control"
+                                       placeholder="Enter Password" id="password" name="password" ng-model="formData.password" required  />
+                                <span ng-show="myForm.password.$error.required && myForm.password.$dirty" style="color:red">
+                                    required
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group last">
+                            <div class="col-sm-offset-3">
+                                <button type="submit" style="margin-left:25px;"
+                                        ng-disabled="!myForm.$valid" class="btn btn-success btn-sm" ng-click="submitLogin()">
+                                    Sign in
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+                <div  class="panel-footer" style="color:red">
+                    <span style="color:red;">
+                        [[ error ]]
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

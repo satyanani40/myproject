@@ -1,0 +1,73 @@
+
+<div ng-include src="'static/app/views/navbar.html'"></div>
+<div class="container">
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        <ul class="nav nav-list bs-docs-sidenav">
+          <li >
+              <a href="#/">
+                  <i class="icon-chevron-right"></i>
+                  Home
+              </a>
+          </li>
+          <li>
+              <a href="#/courses">
+                  <i class="icon-chevron-right"></i>
+                  Courses
+              </a>
+          </li>
+          <li>
+              <a href="#/odl">
+                  <i class="icon-chevron-right"></i>
+                   Online Distance Learning
+              </a>
+          </li>
+          <li>
+              <a href="#/about">
+                  <i class="icon-chevron-right"></i>
+                  About us
+              </a>
+          </li>
+            <li class="active">
+              <a href="#/feedback">
+                  <i class="icon-chevron-right"></i>
+                  Feedback
+              </a>
+          </li>
+          <li>
+              <a href="#/contact">
+                  <i class="icon-chevron-right"></i>
+                  Contact
+              </a>
+          </li>
+        </ul>
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Global Bootstrap settings
+        ================================================== -->
+        <section id="installation" class="span4">
+
+            <h1>Give Feedback</h1>
+			</br>
+            <textarea style="width:97%;resize:none;" cols="20" placeholder="Write Feedback" class="form-control" ng-model="content"></textarea>
+
+            <br />
+            <button class="btn btn-sm btn-primary pull-right" ng-click="submit_feedback()">
+                Submit
+            </button>
+
+            [[ error ]]
+        </section>
+
+
+        <hr class="bs-docs-separator">
+
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top" style="">
+          <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#/" style="color:#fff;">DLPSTAFFS</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated != true">
+
+                        <li class="dropdown active"><a href="#/login">Login</a></li>
+                        <li class="dropdown active"><a href="#/admin">Admin Login</a></li>
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right pull-right" ng-if="isAuthenticated == true">
+
+                        <li class="dropdown active"><a href="#/logout">Logout</a></li>
+                        <li class="dropdown active" ng-if="currentUser.is_superuser == true"><a href="#/register">Create User</a></li>
+                    </ul>
+                </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Subhead
+        ================================================== -->
+        <header class="jumbotron subhead" id="overview">
+        <div class="container">
+        <h1>
+            <img src="static/app/images/leaf-128.png" style="width: 45px;">
+            <span style="position:absolute;top: 65px;left: -12px;font-size: 12px;">
+                GO GREEN
+            </span>
+            Renewable Energy Systems
+        </h1>
+        <p class="lead">
+            Your partner in distance learning..Worldwide
+        </p>
+        </div>
+        <img width="100%;" src="static/app/images/energy.jpg">
+        </header>
