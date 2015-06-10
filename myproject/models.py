@@ -1,5 +1,5 @@
 from mongoengine import *
-#connect('test', host='mongodb://test:test@127.0.0.1:27017/')
+connect('test', host='mongodb://test:test@127.0.0.1:27017/test')
 #connect('test')
 
 from mongoengine.django.auth import User
