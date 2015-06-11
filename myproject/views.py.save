@@ -153,13 +153,13 @@ class Chapters(View):
         folder = 'chapter_pdf'
         uploaded_filename = request.FILES['upload'].name
         try:
-            os.mkdir(os.path.join( BASE_DIR+"/static/", folder))
+            os.mkdir(os.path.join( BASE_PATH+"/static/", folder))
         except Exception as e:	
             logging.debug(e)
             pass
         # save the uploaded file inside that folder.
         uploaded_filename = datetime.datetime.now().strftime("%y_%m_%d_%H_%M_%S_%f_file.pdf")
-        full_filename = os.path.join( BASE_DIR+"/static/", folder, uploaded_filename)
+        full_filename = os.path.join( BASE_PATH+"/static/", folder, uploaded_filename)
         store_path = folder+'/'+uploaded_filename
         fout = open(full_filename, 'wb+')
         file_content = ContentFile(request.FILES['upload'].read())

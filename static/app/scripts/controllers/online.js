@@ -209,7 +209,9 @@ angular.module('sampleAppApp')
             }
         }
 
-        $window.location.replace("http://python-dlpstaffs.rhcloud.com/#/exam_submit")
+        //$window.location.replace("http://python-dlpstaffs.rhcloud.com/#/exam_submit")
+	alert('submitted')
+	 $window.location.replace("http://dlpstaffs.co.uk/#/exam_submit")
     }
   
   })
@@ -237,6 +239,7 @@ angular.module('sampleAppApp')
         setInterval(function () {
             $location.path('/');
             //$window.location.replace("http://python-dlpstaffs.rhcloud.com/#/");
+	     $window.location.replace("http://dlpstaffs.co.uk/#/")
         }, 4000);
   })
   .service('check_exam', function($window) {

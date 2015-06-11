@@ -132,9 +132,9 @@ STATIC_URL = '/static/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 
-EMAIL_HOST_USER = 'nani282828@gmail.com'
+EMAIL_HOST_USER = 'dlpstaffs@gmail.com'
 
-EMAIL_HOST_PASSWORD = 'raJUgaRU3959.'
+EMAIL_HOST_PASSWORD = 'qwertas.12'
 
 EMAIL_PORT = 587
 

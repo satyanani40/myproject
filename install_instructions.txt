@@ -5,3 +5,100 @@ apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | tee -a /etc/apt/sources.list.d/10gen.list
 apt-get -y update
 apt-get -y install mongodb-10gen
+
+
+mongo --port 27017 -u test -p test --authenticationDatabase test
+
+
+{"email" : "dlpstaffs@gmail.com","password" : "qwertas.12","is_active" : true,"is_superuser" : true}
+
+
+
+open cmd terminal
+and type below line. if ssh not install please install ssh.
+
+
+ssh root@107.155.87.133
+password: lovely516
+
+after login type 
+
+mongo --port 27017 -u test -p test --authenticationDatabase test
+
+to change admin email and password
+change admin details
+======================
+1) db.admin.remove({})
+2)db.admin.insert({email: '<your email>', password : 'yourpassword', is_active: true, is_superuser: true})
+admin successfully created
+
+to delete chapters
+===================
+first of all check your upload chapter is correct or not.
+
+1)     db.chapterdetails.find().pretty()
+then the following output will be display
+
+{
+	"_id" : ObjectId("557914b2a8438d188d0f905d"),
+	"chapter_name" : "sample test",
+	"chapter_path" : "chapter_pdf/15_06_11_04_55_14_100710_file.pdf",
+	"cat" : "wind-energy"
+}
+
+{
+	"_id" : ObjectId("557914b2a8438d188d0f905e"),
+	"chapter_name" : "sample test2",
+	"chapter_path" : "chapter_pdf/15_06_11_04_55_14_100710_file.pdf",
+	"cat" : "solar-energy2"
+}
+
+
+above contains two chapters so if you want to delete first or any chapter r use "_id"  shown in bellow
+
+
+
+2)   for deleting first chappter 
+db.chapterdetails.remove( {"_id": ObjectId("4d512b45cc9374271b02ec4d")});
+
+
+  for deleting second chappter 
+db.chapterdetails.remove( {"_id": ObjectId("4d512b45cc9374271b02ec4e")});
+
+to delete users
+=============================
+type the following command to show users
+
+	db.peoples.find().pretty()
+
+output will be
+{
+	"_id" : ObjectId("557918c8a8438d19061d7e65"),
+	"email" : "satya.nani.40@gmail.com",
+	"password" : "111",
+	"is_active" : true,
+	"is_superuser" : false,
+	"access_exams" : [
+		"sample assessment"
+	]
+}
+{
+	"_id" : ObjectId("55791de8a8438d1971db99f9"),
+	"email" : "krishna.rahul229@gmail.com",
+	"password" : "123",
+	"is_active" : true,
+	"is_superuser" : false,
+	"access_exams" : [
+		"sample assessment"
+	]
+}
+
+to delete required user use _id same as chapters
+
+  for deleting first user 557918c8a8438d19061d7e65 avaible in above output
+
+db.chapterdetails.remove( {"_id": ObjectId("557918c8a8438d19061d7e65")});
+
+
+  for deleting second user 
+db.chapterdetails.remove( {"_id": ObjectId("55791de8a8438d1971db99f9")});
