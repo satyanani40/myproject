@@ -8,7 +8,7 @@
  * Controller of the sampleAppApp
  */
 angular.module('sampleAppApp')
-  .controller('SurveyCtrl', function ($scope, $timeout) {
+  .controller('SurveyCtrl', function ($scope, $timeout, $http) {
     $scope.hide_show = false;
     $scope.submitDetails = function(){
         console.log("details");

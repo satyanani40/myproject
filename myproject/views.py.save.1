@@ -1,0 +1,36 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.http import HttpResponse
+from django.contrib.auth import authenticate
+from django.views.generic import View
+from django.shortcuts import  render
+import json
+from models import *
+import os
+from settings import *
+from django.core.files.base import ContentFile
+import datetime
+from django.core import serializers
+from mongoengine.django.auth import User
+from django.core.mail import EmailMultiAlternatives, send_mail
+from bson.json_util import dumps
+from bson import json_util
+from django.core.serializers.json import DjangoJSONEncoder
+#from rest_framework import viewsets
+
+import logging
+logging.basicConfig(filename='/opt/virtualenv/error.log',level=logging.DEBUG)
+
+
+import csv
+class All_chapters(View):
+    def get(self, request):
+        queryset = Chapterdetails.objects.all()
+        data = queryset.to_json()
+        loop_data = json.loads(data)
+        for k in loop_data:
+            k['_id'] = k['_id']['$oid']
+        return HttpResponse(dumps({'data':loop_data}))
+
+class CreateExam(View):
+    def get(self, request):
