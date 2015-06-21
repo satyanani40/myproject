@@ -42,7 +42,7 @@ angular.module('sampleAppApp')
     if($window.sessionStorage.length){
             if(typeof $window.sessionStorage.questions != 'undefined'){
                 $rootScope.questions = JSON.parse($window.sessionStorage.getItem('questions'));
-                console.log($window.sessionStorage.getItem('time'));
+              //  console.log($window.sessionStorage.getItem('time'));
                 $rootScope.time = $window.sessionStorage.getItem('time');
 
             }else{
@@ -62,14 +62,14 @@ angular.module('sampleAppApp')
 
                 }).success(function (out) {
                        $rootScope.questions = JSON.parse(out.data);
-                       console.log('false')
+                      // console.log('false')
                        for(var temp in $rootScope.questions){
                             $rootScope.questions[temp]['_id'] = $rootScope.questions[temp]['_id']['$oid']
                        }
                        $rootScope.time = $rootScope.questions[0]['time']
                        $window.sessionStorage.setItem('questions', JSON.stringify($rootScope.questions));
                        $window.sessionStorage.setItem('time', $rootScope.questions[0]['time']);
-                       console.log($window.sessionStorage.getItem('time'))
+//                       console.log($window.sessionStorage.getItem('time'))
                 })
                 .error(function (data, status) {
 
@@ -99,7 +99,7 @@ angular.module('sampleAppApp')
                $window.sessionStorage.setItem('questions', JSON.stringify($rootScope.questions));
                $rootScope.time = $rootScope.questions[0]['time'];
                $window.sessionStorage.setItem('time', $rootScope.questions[0]['time']);
-               console.log($window.sessionStorage.getItem('time'))
+//               console.log($window.sessionStorage.getItem('time'))
 
         })
         .error(function (data, status) {
@@ -120,7 +120,7 @@ angular.module('sampleAppApp')
     }
 
     $scope.nextQuestion = function(questionId, questionAns){
-        console.log("answer", questionAns)
+  //      console.log("answer", questionAns)
         if($scope.currentStep == $rootScope.questions.length - 1){
             alert('you can not go farword ')
             return;
@@ -133,11 +133,11 @@ angular.module('sampleAppApp')
 
     $scope.clear_session = function(){
         $window.sessionStorage.clear();
-        alert('clear')
+    //    alert('clear')
     }
 
     $scope.save_answer = function(questionId, answer){
-        console.log('hai',questionId, answer);
+      //  console.log('hai',questionId, answer);
          for(var temp in $scope.questions){
             if($scope.questions[temp]._id == questionId){
                 $scope.questions[temp].answered = answer;
@@ -149,7 +149,7 @@ angular.module('sampleAppApp')
     }
 
     $scope.submit_exam = function(){
-        console.log('exam submitted')
+//        console.log('exam submitted')
         $scope.submitted = true;
         $scope.correct_answers = 0;
         $scope.wrong_answers = 0;
@@ -174,8 +174,8 @@ angular.module('sampleAppApp')
         if($scope.correct_answers >= $rootScope.questions[0]['pass_mark']){
 
             var user = JSON.parse($window.sessionStorage.getItem('user'));
-            console.log(user)
-            console.log('online exams ', $window.sessionStorage.getItem('exam_list'));
+  //          console.log(user)
+    //        console.log('online exams ', $window.sessionStorage.getItem('exam_list'));
             var exam_list_to_next = $window.sessionStorage.getItem('exam_list')
 
             //console.log('exam_list==>', exam_list_to_next)
@@ -190,7 +190,7 @@ angular.module('sampleAppApp')
                 return;
             }else{
                 var next_access_exam_to = exam_list_to_next[index_value+1]
-                console.log('save next exam ', next_access_exam_to)
+      //          console.log('save next exam ', next_access_exam_to)
                  $http({
                     method: 'POST',
                     url: '/updateList',
@@ -204,7 +204,7 @@ angular.module('sampleAppApp')
                     }
 
                 }).success(function (out) {
-                    console.log(out);
+        //            console.log(out);
                 });
             }
         }
@@ -217,14 +217,18 @@ angular.module('sampleAppApp')
   })
   .controller('submitExam', function ($scope, $window, $routeParams, $rootScope, $http, $location) {
         $scope.total_answers = $window.sessionStorage.getItem('total');
-        console.log("total--------", $scope.total_answers);
+//        console.log("total--------", $scope.total_answers);
         $scope.correct_answers = $window.sessionStorage.getItem('correct')
-        console.log("correct----", $scope.correct_answers)
+  //      console.log("correct----", $scope.correct_answers)
         $scope.pass_mark = $window.sessionStorage.getItem('min_pass');
-        if($scope.correct_answers >= $scope.pass_mark){
+//	console.log('pass mark--->', $scope.pass_mark)
+
+        if(parseInt($scope.correct_answers) >= parseInt($scope.pass_mark)){
             $scope.pass = true;
+	    //alert('passed exam')
         }else{
             $scope.pass = false;
+ 	    //alert('failed exam')
         }
 
         $window.sessionStorage.removeItem('min_pass');
@@ -233,20 +237,20 @@ angular.module('sampleAppApp')
         $window.sessionStorage.clear();
         $rootScope.currentUser = {};
         $rootScope.isAuthenticated = false;
-        console.log($rootScope.currentUser.access_exams)
+//        console.log($rootScope.currentUser.access_exams)
 
 
         setInterval(function () {
             $location.path('/');
             //$window.location.replace("http://python-dlpstaffs.rhcloud.com/#/");
-	     $window.location.replace("http://dlpstaffs.co.uk/#/")
+            $window.location.replace("http://dlpstaffs.co.uk/#/")
         }, 4000);
   })
   .service('check_exam', function($window) {
 
 		this.get = function(exam) {
              var user = JSON.parse($window.sessionStorage.getItem('user'));
-             console.log(user)
+  //           console.log(user)
              if(user.access_exams.indexOf(exam) == -1){
                 return false;
              }else{

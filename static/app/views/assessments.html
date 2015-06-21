@@ -60,7 +60,7 @@
         ================================================== -->
         <section id="installation" style="min-height:350px;">
 
-            <h1>Tutorials</h1>
+            <h1>Assessments</h1>
 			</br>
 
             <div class="span3 tut" ng-repeat="exam in exam_names">
@@ -71,7 +71,8 @@
                     </a>
                 </div>
                 <div class="span3 tut" ng-if="!(check_exam.get(exam))" >
-                    <a class="btn btn-sm btn-block btn-success" target="_blank" disabled href="#/courses/wind-energy/assessments/[[ exam ]]"
+	
+                    <a class="btn btn-sm btn-block btn-success" disabled 
                        class="btn btn-small btn-success" style="padding:5px 10px;">
                         [[ exam ]]
                     </a>
