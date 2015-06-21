@@ -38,16 +38,18 @@ angular.module('sampleAppApp')
 
               })
            .success(function (out) {
-               $rootScope.exams = JSON.parse(out.data);
-               var exam_names = [];
+         	console.log('---------------->', JSON.parse(out.data).exam_list);
+		
+               $rootScope.exams = JSON.parse(out.data).exam_list;
+               /*var exam_names = [];
                for(var temp in $rootScope.exams){
                    if(exam_names.indexOf($rootScope.exams[temp].exam_name) == -1){
                        exam_names.push($rootScope.exams[temp].exam_name)
                    }
                }
-
-              $rootScope.exam_names = exam_names;
-              $window.sessionStorage.setItem('exam_list', exam_names);
+	      console.log('exams names---->', exam_names)
+              $rootScope.exam_names = exam_names;*/
+              $window.sessionStorage.setItem('exam_list', $rootScope.exams);
 
             })
             .error(function (data, status) {

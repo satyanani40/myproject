@@ -12,6 +12,10 @@ class Chapterdetails(Document):
     chapter_path = StringField(max_length=500)
     cat = StringField(max_length=500)
 
+class Examlist(Document):
+    cat = StringField(max_length= 200)
+    exam_list = ListField()
+
 class Examdetails(Document):
     exam_name = StringField(max_length= 25000)
     question = StringField(max_length= 25000)

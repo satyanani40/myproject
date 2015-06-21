@@ -26,10 +26,22 @@ angular
         templateUrl: 'static/app/views/main.html',
         controller: 'MainCtrl'
       })
+
+       .when('/delete_pue', {
+        templateUrl: 'static/app/views/delete.html',
+	controller: 'DeleteCtrl'
+
+       })
+
       .when('/odl', {
         templateUrl: 'static/app/views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/servey', {
+        templateUrl: 'static/app/views/servey.html',
+        controller: 'SurveyCtrl'
+      })
+
       .when('/about_us', {
         templateUrl: 'static/app/views/about2.html',
 

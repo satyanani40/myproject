@@ -46,6 +46,15 @@ class CreateExam(View):
         try:
             print request.POST['exam_name']
             print request.FILES['upload']
+	  
+	    exam_list_data = Examlist.objects(cat= request.POST['cat'])
+	    if exam_list_data:
+	        Examlist.objects(cat=request.POST['cat']).update_one(push__exam_list=request.POST['exam_name'])
+	    else:
+		cdata = Examlist(cat= request.POST['cat'])          
+		cdata.exam_list = [request.POST['exam_name']]
+		cdata.save()
+
             folder = 'all_csv_files'
             uploaded_filename = request.FILES['upload'].name
             try:
@@ -88,6 +97,7 @@ class CreateExam(View):
 
             return HttpResponse(json.dumps({'status':200}))
         except Exception as e:
+            logging.debug(e)
             return HttpResponse(json.dumps({'status':400}))
 
 class LoginCheck(View):
@@ -114,6 +124,7 @@ class LoginCheck(View):
 
             return HttpResponse(json.dumps({'status':400}))
         except Exception as e:
+	    logging.debug(e)
             return HttpResponse(json.dumps({'status':400}))
 
 class AdminLogin(View):
@@ -267,11 +278,14 @@ def is_useravaible(username):
 
 @csrf_exempt
 def getExams(request):
-    print '--------------------DDDDDDDDDD'
-    data = json.loads(request.body)
-    print data['cat']
-    exam_query = Examdetails.objects(cat= data['cat'])
-    return HttpResponse(dumps({'data':exam_query.to_json()}))
+    try:
+        data = json.loads(request.body)
+        print data['cat']
+        exam_query = Examlist.objects.get(cat= data['cat'])
+        return HttpResponse(json.dumps({'data':exam_query.to_json()}))
+    except Exception as e:
+	logging.debug(e)
+	return json.dumps({'status':False})
 
 @csrf_exempt
 def getExam(request):
@@ -296,6 +310,7 @@ def updateList(request):
         Peoples.objects(email=data['email']).update_one(push__access_exams=data['exam_name'])
         return HttpResponse('hai')
     except Exception  as e:
+	logging.debug(e)
         return HttpResponse(e)
 
 @csrf_exempt
@@ -317,3 +332,78 @@ def test(request):
         return HttpResponse('testing link')
     except Exception  as e:
         return HttpResponse(e)
+
+@csrf_exempt
+def get_all_users(request):
+    try:
+        peoples = Peoples.objects()
+        return HttpResponse(json.dumps({'peoples': peoples.to_json()}))
+    except Exception as e:
+	logging.debug(e)
+	return HttpResponse(json.dumps({'status':False}))
+
+
+@csrf_exempt
+def delete_users(request):
+    try:
+	data = json.loads(request.body)
+        del_doc = Peoples.objects.get(email=data['id'])
+	del_doc.delete()
+        return HttpResponse(json.dumps({'status':True}))
+    except Exception as e:
+        logging.debug(e)
+        return HttpResponse(json.dumps({'status':False}))
+
+
+
+
+@csrf_exempt
+def get_all_chapters(request):
+    try:
+        peoples = Chapterdetails.objects()
+        return HttpResponse(json.dumps({'chapters': peoples.to_json()}))
+    except Exception as e:
+        logging.debug(e)
+        return HttpResponse(json.dumps({'status':False}))
+
+
+
+
+
+@csrf_exempt
+def delete_chapters(request):
+    try:
+        data = json.loads(request.body)
+        del_doc = Chapterdetails.objects.get(chapter_path=data['id'])
+        del_doc.delete()
+        return HttpResponse(json.dumps({'status':True}))
+    except Exception as e:
+        logging.debug(e)
+        return HttpResponse(json.dumps({'status':False}))
+
+
+
+@csrf_exempt
+def delete_all_exams(request):
+    try:
+        del_doc = Examdetails.objects()
+        del_doc.delete()
+	del_doc2 = Examlist.objects()
+	del_doc2.delete()
+        return HttpResponse(json.dumps({'status':True}))
+    except Exception as e:
+        logging.debug(e)
+        return HttpResponse(json.dumps({'status':False}))
+
+
+
+@csrf_exempt
+def send_servey(request):
+    try:
+	data = json.loads(request.body)
+	logging.debug(data['data_servey'])
+        return HttpResponse(json.dumps({'status':True}))
+    except Exception as e:
+        logging.debug(e)
+        return HttpResponse(json.dumps({'status':False}))
+

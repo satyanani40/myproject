@@ -1,0 +1,457 @@
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="#/">Go to home?</a>
+            <h1 style="text-align: center;">
+                A Survey about our website
+            </h1>
+            <hr />
+        </div>
+    </div>
+    <div class="row" style="margin-top: 30px;">
+        <div class="span5 offset2">
+            <form name="surveyForm" role="form" ng-submit="formSubmit()">
+                <label>
+                    <b>
+                        Enter your full name
+                    </b>
+                </label>
+                <input type="text" required ng-model="name" class="form-control input-sm" style="width:100%;  height: 35px;" placeholder="enter full name" />
+                <label>
+                    <b>
+                        Please Share your e-mail address:
+                    </b>
+                </label>
+                <textarea required class="form-control" ng-model="address" rows="3" style="width:100%;" placeholder="Enter your address"></textarea>
+                <label>
+                    <b>
+                        Please share your country name: *
+                    </b>
+                </label>
+                <input required type="text" ng-model="country" class="form-control" style="width:100%;  height: 35px;" placeholder="enter country name" />
+                <label>
+                    <b>
+                        Overall, how well does our website meet your needs?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="website" value="Extremely well" type="radio" id="website1" name="website1">
+
+                            Extremely well
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="website" value="Very well" type="radio" id="website2" name="website2">
+
+                            Very well
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="website" value="Moderately well" type="radio" id="website3" name="website3">
+                            Moderately well
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="website" value="Not so well" type="radio" id="website4" name="website4">
+
+                            Not so well
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="website" value="Not at all well" type="radio" id="website5" name="website5">
+
+                            Not at all well
+
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                        How easy was it to find what you were looking for on our website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="looking" value="Extremely easy" type="radio" id="looking1" name="looking1">
+                            Extremely easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="looking" value="Very easy" type="radio" id="looking2" name="looking2">
+
+                            Very easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="looking" value="Moderately easy" type="radio" id="looking3" name="looking3">
+
+                            Moderately easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="looking" value="Not so easy" type="radio" id="looking4" name="looking4">
+
+                            Not so easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="looking" value="Not at all easy" type="radio" id="looking5" name="looking5">
+
+                            Not at all easy
+
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                        Did it take you more or less time than you expected to find what you were looking for on our
+                        website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="expected" value="A lot less time" type="radio" id="expected1" name="expected1">
+                            A lot less time
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="expected" value="A little less time" type="radio" id="expected2" name="expected2">
+
+                            A little less time
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="expected" value="About what I expected" type="radio" id="expected3" name="expected3">
+                            About what I expected
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="expected" value="A little more time" type="radio" id="expected4" name="expected4">
+                            A little more time
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="expected" value="A lot more time" type="radio" id="expected5" name="expected5">
+                            A lot more time
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                        How visually appealing is our website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="appealing" value="Extremely appealing" type="radio" id="appealing1" name="appealing1">
+                            Extremely appealing
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="appealing" value="Very appealing" type="radio" id="appealing2" name="appealing2">
+
+                            Very appealing
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="appealing" value="Moderately appealing" type="radio" id="appealing3" name="appealing3">
+                            Moderately appealing
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="appealing" value="Not so appealing" type="radio" id="appealing4" name="appealing4">
+                            Not so appealing
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="appealing" value="Not so appealing" type="radio" id="appealing5" name="appealing5">
+                            Not so appealing
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                        How easy is it to understand the information on our website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="understand" value="Extremely easy" type="radio" id="understand1" name="understand1">
+                            Extremely easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="understand" value="Very easy" type="radio" id="understand2" name="understand2">
+
+                            Very easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="understand" value="Moderately easy" type="radio" id="understand3" name="understand3">
+                            Moderately easy
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="understand" value="Not so easy" type="radio" id="understand4" name="understand4">
+                            Not so easy
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="understand" value="Not at all easy" type="radio" id="understand5" name="understand5">
+                            Not at all easy
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                       How much do you trust the information on our website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="information" value="A great deal" type="radio" id="information1" name="information1">
+                            A great deal
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="information" value="A lot" type="radio" id="information2" name="information2">
+
+                            A lot
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="information" value="A moderate amount" type="radio" id="information3" name="information3">
+                            A moderate amount
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="information" value="A little" type="radio" id="information4" name="information4">
+                            A little
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="information" value="Not at all" type="radio" id="information5" name="information5">
+                            Not at all
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                       How easy to answer the questions in the assessment session on our website?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="assessment" value="Extremely easy" type="radio" id="assessment1" name="assessment1">
+                            Extremely easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="assessment" value="Very easy" type="radio" id="assessment2" name="assessment2">
+
+                            Very easy
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="assessment" value="Moderately easy" type="radio" id="assessment3" name="assessment3">
+                            Moderately easy
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="assessment" value="Not so easy" type="radio" id="assessment4" name="assessment4">
+                            Not so easy
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="assessment" value="Not at all easy" type="radio" id="assessment5" name="assessment5">
+                            Not at all easy
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                       As a reader, I would classify myself as:
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="classify" value="Good -- I usually understand the text without help." type="radio" id="classify1" name="classify1">
+                            Good -- I usually understand the text without help.
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="classify" value="Average – I sometimes need help to understand the text." type="radio" id="classify2" name="classify2">
+
+                            Average – I sometimes need help to understand the text.
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="classify" value="Slower than average." type="radio" id="classify3" name="classify3">
+                            Slower than average.
+                    </label>
+                </div>
+
+                <label>
+                    <b>
+                        How likely is it that you would recommend our website to a friend or colleague?
+                    </b>
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="0" type="radio" id="recommend1" name="recommend1">0
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="1" type="radio" id="recommend2" name="recommend2">1
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="2" type="radio" id="recommend3" name="recommend3">2
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="3" type="radio" id="recommend4" name="recommend4">3
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="4" type="radio" id="recommend5" name="recommend5">4
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="5" type="radio" id="recommend6" name="recommend6">5
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="6" type="radio" id="recommend7" name="recommend7">6
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="7" type="radio" id="recommend8" name="recommend8">7
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="8" type="radio" id="recommend9" name="recommend9">8
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="9" type="radio" id="recommend10" name="recommend10">9
+                </label>
+                <label class="radio-inline">
+                    <input ng-model="recommend" value="10" type="radio" id="recommend11" name="recommend11">10
+                </label>
+
+                <label>
+                    <b>
+                        Do you have any other comments about how we can improve our website?
+                    </b>
+                </label>
+                <textarea class="form-control" ng-model="comments" rows="3" style="width:100%;" placeholder="Enter your Comments"></textarea>
+
+                <label>
+                    <b>
+                       Overall, were you satisfied with your experience at this university, neither satisfied nor
+                        dissatisfied with it, or dissatisfied with it?
+                    </b>
+                </label>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Extremely satisfied" type="radio" id="dissatisfied1" name="dissatisfied1">
+                            Extremely satisfied
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Moderately satisfied" type="radio" id="dissatisfied2" name="dissatisfied2">
+
+                            Moderately satisfied
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Moderately satisfied" type="radio" id="dissatisfied3" name="dissatisfied3">
+                            Moderately satisfied
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Neither satisfied nor dissatisfied" type="radio" id="dissatisfied4" name="dissatisfied4">
+                            Neither satisfied nor dissatisfied
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Slightly dissatisfied" type="radio" id="dissatisfied5" name="dissatisfied5">
+
+                            Slightly dissatisfied
+
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Moderately dissatisfied" type="radio" id="dissatisfied6" name="dissatisfied6">
+                            Moderately dissatisfied
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input ng-model="dissatisfied" value="Extremely dissatisfied" type="radio" id="dissatisfied7" name="dissatisfied7">
+                            Extremely dissatisfied
+                    </label>
+                </div>
+                <button class="btn btn-sm btn-primary" ng-click="submitDetails()">
+                    Submit Details
+                </button>
+
+                <span style="color: red" ng-show="hide_show">
+                    Submitted Successfully
+                </span>
+
+            </form>
+        </div>
+    </div>
+</div>

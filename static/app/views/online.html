@@ -185,10 +185,11 @@
                         <input type="radio" value="[[ question.a ]]" ng-model="answer"
                         ng-checked="true" ng-if="question.answered == question.a"
                                name="[[ question._id ]]" id="[[ question._id ]]_1"
-                               ng-change="save_answer(question._id, question.a)"/>
+                               ng-change="save_answer(question._id, 'a')"/>
+                        <!--- removed part question.a -->
 
                         <input type="radio" value="[[ question.a ]]" ng-model="answer"
-                        ng-change="save_answer(question._id, question.a)"
+                        ng-change="save_answer(question._id, 'a')"
                         ng-if="question.answered != question.a"
                                name="[[ question._id ]]" id="[[ question._id ]]_1" />
                         
@@ -208,12 +209,12 @@
                     <div class="[ form-group ]">
 
                         <input type="radio" value="[[ question.b ]]" ng-model="answer"
-                         ng-change="save_answer(question._id, question.b)" 
+                         ng-change="save_answer(question._id,'b')" 
                         ng-if="question.answered == question.b" ng-checked="true"
                                name="[[ question._id]]" id="[[ question._id]]_2" />
 
                         <input type="radio" value="[[ question.b [[" ng-model="answer"
-                         ng-change="save_answer(question._id, question.b)"
+                         ng-change="save_answer(question._id, 'b')"
                         ng-if="question.answered != question.b"
                                name="[[ question._id]]" id="[[ question._id]]_2" />
 
@@ -229,11 +230,13 @@
                         </div>
                     </div>
                     <div class="[ form-group ]">
-                        <input type="radio" value="[[ question.c ]]" ng-model="answer"  ng-change="save_answer(question._id, question.c)"
+                        <input type="radio" value="[[ question.c ]]" ng-model="answer"  
+                               ng-change="save_answer(question._id, 'c')"
                         ng-if="question.answered == question.c" ng-checked = "true"
                                name="[[ question._id]]" id="[[ question._id]]_3" />
 
-                        <input type="radio" value="[[ question.c ]]" ng-model="answer"  ng-change="save_answer(question._id, question.c)"
+                        <input type="radio" value="[[ question.c ]]" ng-model="answer"  
+                               ng-change="save_answer(question._id, 'c')"
                         ng-if="question.answered != question.c"
                                name="[[ question._id]]" id="[[ question._id]]_3" />
 
@@ -249,12 +252,15 @@
                         </div>
                     </div>
                     <div class="[ form-group ]">
-                        <input type="radio" value="[[ question.d ]]" ng-model="answer"  ng-change="save_answer(question._id, question.d)"
-                        ng-if="question.answered == question.d" ng-checked = "true" ng-change="save_answer(question._id, question.d)"
+                        <input type="radio" value="[[ question.d ]]" ng-model="answer"  
+                               
+                        ng-if="question.answered == question.d" ng-checked = "true" 
+                               ng-change="save_answer(question._id, 'd')"
                                name="[[ question._id ]]" id="[[ question._id ]]_4" />
 
                         <input type="radio" value="[[ question.d ]]" ng-model="answer"
-                        ng-if="question.answered != question.d"  ng-change="save_answer(question._id, question.d)"
+                        ng-if="question.answered != question.d"  
+                        ng-change="save_answer(question._id, 'd')"
                                name="[[ question._id ]]" id="[[ question._id]]_4" />
                                
 
@@ -312,5 +318,6 @@
             </div>
         </div>-->
     </div>
+
 
 

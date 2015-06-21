@@ -1,0 +1,43 @@
+<div ng-include src="'static/app/views/navbar.html'"></div>
+
+
+        <section id="installation" style="min-height:350px;">
+
+            <h1>Users to Delete</h1>
+			</br>
+            <div ng-repeat="people in peoples_todelete">
+                       [[ people.email ]]
+       <input type="button" value="delete" ng-click="delete_user('[[ people.email ]]')">
+
+             </div>
+	 [[ deleted ]]
+
+       </section>
+
+	 <section id="installation" style="min-height:350px;">
+
+            <h1>chapters  to Delete</h1>
+                        </br>
+            <div ng-repeat="chapter in chapters_todelete">
+                       [[ chapter.chapter_name ]]
+       <input type="button" value="delete" ng-click="delete_chapter('[[ chapter.chapter_path ]]')">
+
+             </div>
+         [[ deleted ]]
+
+       </section>
+
+
+	 </section>
+
+         <section id="installation" style="min-height:350px;">
+            <h1>delete all examse</h1>
+                        </br>
+	       <input type="button" value="delete all chapters" ng-click="delete_all_exams()">
+
+             </div>
+         [[ deleted ]]
+
+       </section>
+
+

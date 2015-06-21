@@ -34,6 +34,12 @@ urlpatterns = [
     url(r'^getExams', getExams),
     url(r'^getExam', getExam),
     url(r'^updateList', updateList),
+    url(r'^get_all_users', get_all_users),
+    url(r'^get_all_chapters', get_all_chapters),
+    url(r'^delete_users', delete_users),
+    url(r'^delete_chapter', delete_chapters),
+    url(r'^delete_all_exams', delete_all_exams),
+    url(r'^send_servey', send_servey),
     url(r'^test', test),
 ]
 
