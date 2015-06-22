@@ -155,7 +155,8 @@ angular.module('sampleAppApp')
         $scope.wrong_answers = 0;
         $scope.total_answers = 0;
         for(var temp in $scope.questions){
-            if($scope.questions[temp].correct ==  $scope.questions[temp].answered){
+	    console.log("correct==>",$scope.questions[temp].correct, "answered", $scope.questions[temp].answered)
+            if(String($scope.questions[temp].correct).trim() ==  String($scope.questions[temp].answered).trim()){
                 $scope.correct_answers += 1;
             }else{
                 $scope.wrong_answers += 1;
@@ -211,17 +212,17 @@ angular.module('sampleAppApp')
 
         //$window.location.replace("http://python-dlpstaffs.rhcloud.com/#/exam_submit")
 	alert('submitted')
-	 $window.location.replace("http://dlpstaffs.co.uk/#/exam_submit")
+	 $window.location.replace("http://dlpstaffs.com/#/exam_submit")
     }
   
   })
   .controller('submitExam', function ($scope, $window, $routeParams, $rootScope, $http, $location) {
         $scope.total_answers = $window.sessionStorage.getItem('total');
-//        console.log("total--------", $scope.total_answers);
+        console.log("total--------", $scope.total_answers);
         $scope.correct_answers = $window.sessionStorage.getItem('correct')
-  //      console.log("correct----", $scope.correct_answers)
+        console.log("correct----", $scope.correct_answers)
         $scope.pass_mark = $window.sessionStorage.getItem('min_pass');
-//	console.log('pass mark--->', $scope.pass_mark)
+	console.log('pass mark--->', $scope.pass_mark)
 
         if(parseInt($scope.correct_answers) >= parseInt($scope.pass_mark)){
             $scope.pass = true;
@@ -241,9 +242,9 @@ angular.module('sampleAppApp')
 
 
         setInterval(function () {
-            $location.path('/');
+            //$location.path('/');
             //$window.location.replace("http://python-dlpstaffs.rhcloud.com/#/");
-            $window.location.replace("http://dlpstaffs.co.uk/#/")
+            $window.location.replace("http://dlpstaffs.com/#/")
         }, 4000);
   })
   .service('check_exam', function($window) {

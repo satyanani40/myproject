@@ -21,7 +21,14 @@
 
                         <li class="dropdown active"><a href="#/logout">Logout</a></li>
                         <li class="dropdown active" ng-if="currentUser.is_superuser == true"><a href="#/register">Create User</a></li>
+			<li class="dropdown active" ng-if="currentUser.is_superuser == true"><a href="#/delete_pue">delete section</a></li>
                     </ul>
+
+		     <ul class="nav navbar-nav navbar-right pull-right" >
+			<li class="dropdown active"><a href="#/servey">servey</a></li>
+                        
+                    </ul>
+
                 </div>
 
             </div>

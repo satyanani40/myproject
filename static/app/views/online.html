@@ -185,11 +185,11 @@
                         <input type="radio" value="[[ question.a ]]" ng-model="answer"
                         ng-checked="true" ng-if="question.answered == question.a"
                                name="[[ question._id ]]" id="[[ question._id ]]_1"
-                               ng-change="save_answer(question._id, 'a')"/>
+                               ng-change="save_answer(question._id, ' a')"/>
                         <!--- removed part question.a -->
 
                         <input type="radio" value="[[ question.a ]]" ng-model="answer"
-                        ng-change="save_answer(question._id, 'a')"
+                        ng-change="save_answer(question._id, ' a')"
                         ng-if="question.answered != question.a"
                                name="[[ question._id ]]" id="[[ question._id ]]_1" />
                         
@@ -209,12 +209,12 @@
                     <div class="[ form-group ]">
 
                         <input type="radio" value="[[ question.b ]]" ng-model="answer"
-                         ng-change="save_answer(question._id,'b')" 
+                         ng-change="save_answer(question._id,' b')" 
                         ng-if="question.answered == question.b" ng-checked="true"
                                name="[[ question._id]]" id="[[ question._id]]_2" />
 
                         <input type="radio" value="[[ question.b [[" ng-model="answer"
-                         ng-change="save_answer(question._id, 'b')"
+                         ng-change="save_answer(question._id, ' b')"
                         ng-if="question.answered != question.b"
                                name="[[ question._id]]" id="[[ question._id]]_2" />
 
@@ -231,18 +231,19 @@
                     </div>
                     <div class="[ form-group ]">
                         <input type="radio" value="[[ question.c ]]" ng-model="answer"  
-                               ng-change="save_answer(question._id, 'c')"
+                               ng-change="save_answer(question._id, ' c')"
                         ng-if="question.answered == question.c" ng-checked = "true"
                                name="[[ question._id]]" id="[[ question._id]]_3" />
 
                         <input type="radio" value="[[ question.c ]]" ng-model="answer"  
-                               ng-change="save_answer(question._id, 'c')"
+                               ng-change="save_answer(question._id, ' c')"
                         ng-if="question.answered != question.c"
                                name="[[ question._id]]" id="[[ question._id]]_3" />
 
                         <div class="[ btn-group ]">
                             <label for="[[ question._id]]_3" style="padding: 2px;border-top-right-radius:3px;border-bottom-right-radius:3px;"
                                    class="[ btn btn-default ]">
+
                                 <span class="[ glyphicon glyphicon-ok ]"></span>
                                 <span> </span>
                             </label>

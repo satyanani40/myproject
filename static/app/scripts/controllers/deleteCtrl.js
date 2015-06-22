@@ -39,7 +39,7 @@ angular.module('sampleAppApp')
 
 
 	$scope.delete_user = function(id){
-		$scope.deleted = "";
+		$scope.deleted_u = "";
 		console.log(id);
 		$http({
                     method: 'POST',
@@ -55,17 +55,17 @@ angular.module('sampleAppApp')
                 }).success(function (out) {
 			console.log(out)
 			if(out.status == true){
-				$scope.deleted = "successfully deleted"
+				$scope.deleted_u = "successfully deleted"
 			}
 			else{
-				$scope.deleted = "failed to delete"
+				$scope.deleted_u = "failed to delete"
 			}
                 });
 		
 	}
 
 	 $scope.delete_chapter = function(id){
-                $scope.deleted = "";
+                $scope.deleted_c = "";
                 console.log(id);
                 $http({
                     method: 'POST',
@@ -81,10 +81,10 @@ angular.module('sampleAppApp')
                 }).success(function (out) {
                         console.log(out)
                         if(out.status == true){
-                                $scope.deleted = "successfully deleted"
+                                $scope.deleted_c = "successfully deleted"
                         }
                         else{
-                                $scope.deleted = "failed to delete"
+                                $scope.deleted_c = "failed to delete"
                         }
                 });
 
@@ -107,10 +107,10 @@ angular.module('sampleAppApp')
                 }).success(function (out) {
                         console.log(out)
                         if(out.status == true){
-                                $scope.deleted = "successfully deleted"
+                                $scope.deleted_e = "successfully deleted"
                         }
                         else{
-                                $scope.deleted = "failed to delete"
+                                $scope.deleted_e = "failed to delete"
                         }
                 });
 
@@ -119,4 +119,5 @@ angular.module('sampleAppApp')
 
 
   });
+
 

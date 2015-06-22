@@ -1,43 +1,40 @@
 <div ng-include src="'static/app/views/navbar.html'"></div>
 
+<div class="container">
+    <div class="span4" id="installation" style="min-height:350px;margin-left: 0px;">
 
-        <section id="installation" style="min-height:350px;">
+        <h3>Users to Delete</h3>
+        <div ng-repeat="people in peoples_todelete">
+             <h5>
+                 [[ people.email ]]
+                <input type="button" value="delete" ng-click="delete_user('[[ people.email ]]')" class="pull-right">
+             </h5>
+            <hr />
+         </div>
 
-            <h1>Users to Delete</h1>
-			</br>
-            <div ng-repeat="people in peoples_todelete">
-                       [[ people.email ]]
-       <input type="button" value="delete" ng-click="delete_user('[[ people.email ]]')">
+     [[ deleted_u ]]
 
-             </div>
-	 [[ deleted ]]
+   </div>
+     <div class="span4" id="installation" style="min-height:350px;margin-left: 20px;">
 
-       </section>
+        <h3>chapters  to Delete</h3>                        </br>
+        <div ng-repeat="chapter in chapters_todelete">
+            <h5>
+                [[ chapter.chapter_name ]]
+                <input type="button" value="delete" ng-click="delete_chapter('[[ chapter.chapter_path ]]')" class="pull-right">
+            </h5>
+            <hr />
+         </div>
+        [[ deleted_c ]]
+     </div>
 
-	 <section id="installation" style="min-height:350px;">
+     <div class="span4" id="installation" style="min-height:350px;margin-left: 0px;">
+        <h3>delete all examse</h3>
+                    </br>
 
-            <h1>chapters  to Delete</h1>
-                        </br>
-            <div ng-repeat="chapter in chapters_todelete">
-                       [[ chapter.chapter_name ]]
-       <input type="button" value="delete" ng-click="delete_chapter('[[ chapter.chapter_path ]]')">
+           <input type="button" value="delete all Exams" ng-click="delete_all_exams()" class="pull-right">
 
-             </div>
-         [[ deleted ]]
-
-       </section>
-
-
-	 </section>
-
-         <section id="installation" style="min-height:350px;">
-            <h1>delete all examse</h1>
-                        </br>
-	       <input type="button" value="delete all chapters" ng-click="delete_all_exams()">
-
-             </div>
-         [[ deleted ]]
-
-       </section>
-
+     </div>
+     [[ deleted_e ]]
+</div>
 

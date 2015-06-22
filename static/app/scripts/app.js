@@ -50,6 +50,25 @@ angular
         templateUrl: 'static/app/views/contact.html',
 
       })
+
+
+      .when('/course/solar-generation', {
+        templateUrl: 'static/app/views/tempcourse.html',
+
+      })
+
+	 .when('/course/tidal-energy', {
+        templateUrl: 'static/app/views/tempcourse.html',
+
+      })
+
+
+	 .when('/course/biomas-energy', {
+        templateUrl: 'static/app/views/tempcourse.html',
+
+      })
+
+
       .when('/about/topic', {
         templateUrl: 'static/app/views/topic.html',
       })
